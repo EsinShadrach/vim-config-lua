@@ -1,2 +1,2 @@
 require("rafe.remap")
-print("Hello form rafe")
+require("rafe.set")

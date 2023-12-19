@@ -1,4 +1,5 @@
 function ColorMyPencils(color)
+	-- Reduces opacity of the background
 	color = color or "material"
 	vim.cmd.colorscheme(color)
 	
