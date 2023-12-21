@@ -1,2 +1,4 @@
 require("rafe")
-print("hello from rafe...")
+
+-- Add all you default function here
+print("Welcome")

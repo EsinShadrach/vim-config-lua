@@ -75,5 +75,5 @@
   "tailwindCSS.headwind.runOnSave": true,
   "tailwindCSS.showPixelEquivalents": true,
   "tailwindCSS.colorDecorators": true,
-  "snippets.ultisnips.pythonPrompt": false
+  "codeLens.enable": true
 }

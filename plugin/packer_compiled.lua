@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
   ["dart-vim-plugin"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
@@ -204,6 +209,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
   },
   ["vim-rooter"] = {
     loaded = true,
