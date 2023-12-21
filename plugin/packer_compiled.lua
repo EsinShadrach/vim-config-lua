@@ -109,11 +109,11 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  material = {
-    config = { "\27LJ\2\no\0\0\3\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\25colorscheme material\bcmd\20ocean-community\25material_theme_style\6g\bvim\0" },
+  ["lualine.nvim"] = {
+    config = { "\27LJ\2\n—\1\0\0\a\1\n\0\19-\0\0\0\15\0\0\0X\1\2€'\0\0\0X\1\1€'\0\1\0006\1\2\0'\3\3\0B\1\2\0029\1\4\0015\3\b\0005\4\6\0'\5\5\0\18\6\0\0&\5\6\5=\5\a\4=\4\t\3B\1\2\1K\0\1\0\0\0\foptions\1\0\0\ntheme\1\0\0\16tokyonight_\nsetup\flualine\frequire\nlinux\nmacos\0" },
     loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/material",
-    url = "https://github.com/kaicataldo/material.vim"
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/hoob3rt/lualine.nvim"
   },
   nerdtree = {
     loaded = true,
@@ -139,6 +139,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -175,15 +181,16 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  tokyonight = {
+    config = { "\27LJ\2\n’\1\0\0\4\0\b\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\2\0005\2\6\0005\3\5\0=\3\a\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\15tokyonight\flualine\1\0\1\nstyle\nnight\nsetup\15tokyonight\frequire\0" },
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/tokyonight",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
   },
   ["vim-better-comments"] = {
     loaded = true,
@@ -228,10 +235,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: material
-time([[Config for material]], true)
-try_loadstring("\27LJ\2\no\0\0\3\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\25colorscheme material\bcmd\20ocean-community\25material_theme_style\6g\bvim\0", "config", "material")
-time([[Config for material]], false)
+-- Config for: tokyonight
+time([[Config for tokyonight]], true)
+try_loadstring("\27LJ\2\n’\1\0\0\4\0\b\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\2\0005\2\6\0005\3\5\0=\3\a\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\15tokyonight\flualine\1\0\1\nstyle\nnight\nsetup\15tokyonight\frequire\0", "config", "tokyonight")
+time([[Config for tokyonight]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n—\1\0\0\a\1\n\0\19-\0\0\0\15\0\0\0X\1\2€'\0\0\0X\1\1€'\0\1\0006\1\2\0'\3\3\0B\1\2\0029\1\4\0015\3\b\0005\4\6\0'\5\5\0\18\6\0\0&\5\6\5=\5\a\4=\4\t\3B\1\2\1K\0\1\0\0\0\foptions\1\0\0\ntheme\1\0\0\16tokyonight_\nsetup\flualine\frequire\nlinux\nmacos\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
