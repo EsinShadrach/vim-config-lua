@@ -79,11 +79,11 @@ return require('packer').startup(function(use)
   use({ 'wakatime/vim-wakatime' })
   use({ 'neovim/nvim-lspconfig' })
   use({ 'nvim-lua/plenary.nvim' })
+  use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
   -- use({ 'mfussenegger/nvim-dap' })
   -- use({ 'rcarriga/nvim-dap-ui' })
   -- use({ 'hrsh7th/nvim-cmp' })
   -- use({ 'hrsh7th/cmp-nvim-lsp' })
   -- use({ "williamboman/mason.nvim" })
   -- use({ "williamboman/mason-lspconfig.nvim" })
-  use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
 end)
