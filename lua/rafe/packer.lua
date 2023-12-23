@@ -2,7 +2,6 @@
 
 -- Only required if you have packer configured as `opt`
 
-local is_macos = vim.loop.os_uname().sysname == "Darwin"
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -28,24 +27,15 @@ return require('packer').startup(function(use)
         --   colors.error = "#ff0000" -- Change the "error" color to bright red
         -- end,
       })
-      -- Lualine setup
-      require('lualine').setup {
-        options = {
-          theme = 'tokyonight' -- Set the Lualine theme to Tokyo Night
-          -- Other Lualine options as per your preferences
-        }
-      }
     end
   })
   use({
     'hoob3rt/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      local lualine_os = is_macos and 'macos' or 'linux' -- Specify the OS for Lualine
-
       require('lualine').setup {
         options = {
-          theme = 'tokyonight_' .. lualine_os -- Adjust the Lualine theme based on the OS
+          theme = 'tokyonight'
           -- Other Lualine options as per your preferences
         }
       }

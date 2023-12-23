@@ -1,7 +1,7 @@
 local rt = require("rust-tools")
 print("Loaded rust-tools")
 
-nvim_lsp.rust_analyzer.setup({})
+-- nvim_lsp.rust_analyzer.setup({})
 
 rt.setup({
   tools = {

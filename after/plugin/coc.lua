@@ -189,11 +189,11 @@ keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
 keyset("i", "<S-SPACE>", "coc#refresh()", { silent = true, expr = true })
 
 
-require('nvim_lsp').rust_analyzer.setup({
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-  end
-})
+-- require('nvim_lsp').rust_analyzer.setup({
+--   on_attach = function(client)
+--     client.resolved_capabilities.document_formatting = false
+--   end
+-- })
 
 -- Additional configurations for CoC settings (coc-settings.json)
 vim.cmd('autocmd FileType rust let b:coc_global_extensions = ["rust-analyzer"]')
