@@ -41,6 +41,20 @@ return require('packer').startup(function(use)
       }
     end
   })
+  use {
+    'sudoerwx/vim-ray-so-beautiful',
+    config = function()
+      -- Set any additional configurations here if needed
+      -- For example, configuring options
+      vim.g.ray_options = {
+        theme = 'breeze',
+        background = 'true',
+        darkMode = 'true',
+        padding = '64',
+        language = 'auto'
+      }
+    end
+  }
   use({ 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } })
   use({ 'nvim-treesitter/playground' })
   use({ 'theprimeagen/harpoon' })
@@ -67,8 +81,7 @@ return require('packer').startup(function(use)
   use({ 'airblade/vim-gitgutter' })
   use({ 'github/copilot.vim' })
   use({ 'wakatime/vim-wakatime' })
-  use({ 'neovim/nvim-lspconfig' })
-  use({ 'nvim-lua/plenary.nvim' })
+  -- use({ 'neovim/nvim-lspconfig' })
   use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
   -- use({ 'mfussenegger/nvim-dap' })
   -- use({ 'rcarriga/nvim-dap-ui' })
