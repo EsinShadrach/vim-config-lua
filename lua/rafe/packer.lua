@@ -81,8 +81,13 @@ return require('packer').startup(function(use)
   use({ 'airblade/vim-gitgutter' })
   use({ 'github/copilot.vim' })
   use({ 'wakatime/vim-wakatime' })
-  -- use({ 'neovim/nvim-lspconfig' })
   use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
+  use({ 'mattn/emmet-vim' })
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  -- use({ 'neovim/nvim-lspconfig' })
   -- use({ 'mfussenegger/nvim-dap' })
   -- use({ 'rcarriga/nvim-dap-ui' })
   -- use({ 'hrsh7th/nvim-cmp' })
