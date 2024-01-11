@@ -47,10 +47,10 @@ return require('packer').startup(function(use)
       -- Set any additional configurations here if needed
       -- For example, configuring options
       vim.g.ray_options = {
-        theme = 'breeze',
+        theme = 'candy',
         background = 'true',
         darkMode = 'true',
-        padding = '64',
+        padding = '32',
         language = 'auto'
       }
     end
@@ -82,10 +82,8 @@ return require('packer').startup(function(use)
   use({ 'github/copilot.vim' })
   use({ 'wakatime/vim-wakatime' })
   use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
-  use({ 'mattn/emmet-vim' })
   use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+    "iamcco/markdown-preview.nvim"
   })
   -- use({ 'neovim/nvim-lspconfig' })
   -- use({ 'mfussenegger/nvim-dap' })
