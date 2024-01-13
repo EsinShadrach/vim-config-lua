@@ -85,6 +85,7 @@ return require('packer').startup(function(use)
   use({
     "iamcco/markdown-preview.nvim"
   })
+  use({ "catppuccin/nvim", as = "catppuccin" })
   -- use({ 'neovim/nvim-lspconfig' })
   -- use({ 'mfussenegger/nvim-dap' })
   -- use({ 'rcarriga/nvim-dap-ui' })

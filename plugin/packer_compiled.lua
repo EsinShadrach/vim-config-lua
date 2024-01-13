@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/coc.nvim",
@@ -228,7 +233,7 @@ _G.packer_plugins = {
     url = "https://github.com/airblade/vim-gitgutter"
   },
   ["vim-ray-so-beautiful"] = {
-    config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\15background\ttrue\ntheme\ncandy\fpadding\a32\rdarkMode\ttrue\rlanguage\tauto\16ray_options\6g\bvim\0" },
+    config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\fpadding\a32\15background\ttrue\ntheme\ncandy\rdarkMode\ttrue\rlanguage\tauto\16ray_options\6g\bvim\0" },
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-ray-so-beautiful",
     url = "https://github.com/sudoerwx/vim-ray-so-beautiful"
@@ -251,10 +256,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: vim-ray-so-beautiful
-time([[Config for vim-ray-so-beautiful]], true)
-try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\15background\ttrue\ntheme\ncandy\fpadding\a32\rdarkMode\ttrue\rlanguage\tauto\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")
-time([[Config for vim-ray-so-beautiful]], false)
 -- Config for: tokyonight
 time([[Config for tokyonight]], true)
 try_loadstring("\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nstyle\nnight\nsetup\15tokyonight\frequire\0", "config", "tokyonight")
@@ -263,6 +264,10 @@ time([[Config for tokyonight]], false)
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\n`\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\15tokyonight\nsetup\flualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: vim-ray-so-beautiful
+time([[Config for vim-ray-so-beautiful]], true)
+try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\fpadding\a32\15background\ttrue\ntheme\ncandy\rdarkMode\ttrue\rlanguage\tauto\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")
+time([[Config for vim-ray-so-beautiful]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
