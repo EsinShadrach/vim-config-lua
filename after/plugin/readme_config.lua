@@ -39,7 +39,7 @@ vim.g.mkdp_combine_preview_auto_refresh = 1
 -- Key mappings for Markdown Preview in Lua
 
 -- Normal mode mapping to trigger MarkdownPreview
-vim.api.nvim_set_keymap('n', '<C-s>', '<Plug>MarkdownPreview', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<C-s>', '<Plug>MarkdownPreview', { noremap = true, silent = true })
 
 -- Normal mode mapping to stop MarkdownPreview
 -- vim.api.nvim_set_keymap('n', '<M-s>', '<Plug>MarkdownPreviewStop', { noremap = true, silent = true })
@@ -48,7 +48,7 @@ vim.api.nvim_set_keymap('n', '<C-s>', '<Plug>MarkdownPreview', { noremap = true,
 -- vim.api.nvim_set_keymap('n', '<C-p>', '<Plug>MarkdownPreviewToggle', { noremap = true, silent = true })
 
 -- Insert mode mapping to trigger MarkdownPreview
-vim.api.nvim_set_keymap('i', '<C-s>', '<Plug>MarkdownPreview', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '<C-s>', '<Plug>MarkdownPreview', { noremap = true, silent = true })
 
 -- Insert mode mapping to stop MarkdownPreview
 -- vim.api.nvim_set_keymap('i', '<M-s>', '<Plug>MarkdownPreviewStop', { noremap = true, silent = true })
