@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'tokyonight'
+          theme = 'catppuccin'
           -- Other Lualine options as per your preferences
         }
       }
@@ -82,15 +82,7 @@ return require('packer').startup(function(use)
   use({ 'github/copilot.vim' })
   use({ 'wakatime/vim-wakatime' })
   use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
-  use({
-    "iamcco/markdown-preview.nvim"
-  })
+  use({ "iamcco/markdown-preview.nvim" })
   use({ "catppuccin/nvim", as = "catppuccin" })
-  -- use({ 'neovim/nvim-lspconfig' })
-  -- use({ 'mfussenegger/nvim-dap' })
-  -- use({ 'rcarriga/nvim-dap-ui' })
-  -- use({ 'hrsh7th/nvim-cmp' })
-  -- use({ 'hrsh7th/cmp-nvim-lsp' })
-  -- use({ "williamboman/mason.nvim" })
-  -- use({ "williamboman/mason-lspconfig.nvim" })
+  use({ "ThePrimeagen/vim-be-good" })
 end)
