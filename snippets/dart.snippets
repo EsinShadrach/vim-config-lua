@@ -54,3 +54,52 @@ class ${1:ClassName} extends ChangeNotifier {
 }
 endsnippet
 
+# Flutter App
+snippet flutterapp "Bootstrap a Flutter App"
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+	const ${1:WidgetName}({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: ${1:MyHomePage()},
+    );
+  }
+}
+endsnippet
+
+# Scaffold Widget
+snippet scaffold "Scaffold Widget"
+Scaffold(
+  appBar: AppBar(
+    title: Text('${1:Title}'),
+  ),
+  body: ${2:Container}(
+    $0
+  ),
+)
+
+# Column Widget
+snippet column "Column Widget"
+Column(
+  children: <Widget>[
+    ${1:Widget1},
+    ${2:Widget2()},
+    $0
+  ],
+)
+
+# Row Widget
+snippet row "Row Widget"
+Row(
+  children: <Widget>[
+    ${1:Widget1},
+    ${2:Widget2},
+    $0
+  ],
+)
+
