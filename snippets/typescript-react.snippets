@@ -1,0 +1,95 @@
+# React Functional Component
+snippet rfc "React Functional Component"
+
+import React from 'react';
+
+function ${1:ComponentName}({${2:prop1}}: {${2}: ${3:string}}) {
+	return (
+    <div>
+      $0
+    </div>
+  );
+};
+endsnippet
+
+# React Functional Component
+snippet erfc "Export React Functional Component"
+
+import React from 'react';
+
+export function ${1:ComponentName}({${2:prop1}}: {${2}: ${3:string}}) {
+  return (
+    <div>
+      $0
+    </div>
+  );
+};
+endsnippet
+
+
+# NextJS React Functional Component
+snippet page "Next Page Functional Component"
+
+import React from 'react';
+
+type ${1:ComponentName}Props = {
+	params: {[key: string]: string};
+	searchParams: {[key: string]: string};
+}
+
+export default function ${1}({params, searchParams}: ${1}Props) {
+  return (
+    <div>
+      $0
+    </div>
+  );
+};
+endsnippet
+
+# React State Hook
+snippet state "React State Hook"
+const [${1:stateVariable}, set${1/./\u/}] = React.useState(${2:initialValue});
+endsnippet
+
+# React Effect Hook
+snippet effect "React Effect Hook"
+React.useEffect(() => {
+  // Effect code
+  return () => {
+    // Cleanup code (optional)
+  };
+}, [${1:dependencies}]);
+endsnippet
+
+# Next.js Layout Component
+snippet layout "Next.js Layout Component"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	$0
+};
+
+type LayoutProps = {
+	children: React.ReactNode;
+	params: {[key: string]: string};
+};
+
+export default function ${2:RootLayout} ({ children, params}: LayoutProps) {
+	return(
+		<html lang="en">
+			<body className="">{children}</body>
+		</html>
+	)
+};
+
+
+endsnippet
+
+# Server action
+snippet sAction "Server Action"
+"use server";
+
+export async function ${1:actionName}(${2:body}: ${3:FormData}) {
+	$0
+}
+endsnippet
