@@ -48,7 +48,7 @@ endsnippet
 
 # React State Hook
 snippet state "React State Hook"
-const [${1:stateVariable}, set${1/./\u/}] = React.useState(${2:initialValue});
+const [${1:stateVariable}, set${1/\v(\w+)/\u\1/}] = React.useState(${2:initialValue});
 endsnippet
 
 # React Effect Hook
@@ -63,6 +63,7 @@ endsnippet
 
 # Next.js Layout Component
 snippet layout "Next.js Layout Component"
+import React from 'react';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -81,8 +82,6 @@ export default function ${2:RootLayout} ({ children, params}: LayoutProps) {
 		</html>
 	)
 };
-
-
 endsnippet
 
 # Server action
@@ -92,4 +91,16 @@ snippet sAction "Server Action"
 export async function ${1:actionName}(${2:body}: ${3:FormData}) {
 	$0
 }
+endsnippet
+
+# Zustand Init Store
+snippet zInit "Zustand Init Store"
+import create from "zustand";
+type ${1:State} = {
+	$0
+};
+
+export const use${1/./\u/} = create<${1:State}>((set) => ({
+	$2
+}));
 endsnippet
