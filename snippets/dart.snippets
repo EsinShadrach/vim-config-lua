@@ -1,0 +1,56 @@
+snippet vfun "Create a void function" 
+${1:void} ${2:functionName}(${3:Type} ${4:parameter}) {
+    $0
+}
+endsnippet
+
+# Stateless Widget
+snippet stl "Stateless Widget"
+class ${1:WidgetName} extends StatelessWidget {
+	const ${1:WidgetName}({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ${2:Container}(
+      $0
+    );
+  }
+}
+endsnippet
+
+# Stateful Widget
+snippet stf "Custom Stateful Widget"
+class ${1:WidgetName} extends StatefulWidget {
+	const ${1:WidgetName}({super.key});
+
+  @override
+	State<${1:WidgetName}> createState() => _${1}State();
+}
+
+class _${1}State extends State<${1:WidgetName}> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      $0
+    );
+  }
+}
+endsnippet
+
+# Provider Class
+snippet providerclass "Provider Class"
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+class ${1:ClassName} extends ChangeNotifier {
+  ${2:Type} _${3:variableName} = ${4:initialValue};
+
+	${2:Type} get ${3:variableName} => _$3;
+
+  void ${5:updateFn}() {
+    _$3 = $6;
+    notifyListeners();
+  }
+}
+endsnippet
+

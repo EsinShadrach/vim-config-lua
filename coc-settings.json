@@ -1,5 +1,6 @@
 {
   "coc.preferences.formatOnSaveTimeout": 500,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
   "coc.preferences.formatOnType": true,
   "prettier.tabWidth": 2,
   "refactor.saveToFile": true,
@@ -76,5 +77,6 @@
   "tailwindCSS.showPixelEquivalents": true,
   "tailwindCSS.colorDecorators": true,
   "codeLens.enable": true,
-  "rust-analyzer.checkOnSave": true
+  "rust-analyzer.checkOnSave": true,
+  "snippets.ultisnips.pythonPrompt": false
 }
