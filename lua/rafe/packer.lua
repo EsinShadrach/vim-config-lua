@@ -17,15 +17,7 @@ return require('packer').startup(function(use)
     as = "tokyonight",
     config = function()
       require("tokyonight").setup({
-        -- Choose the style you want: "night", "storm", "moon", or "day"
         style = "night",
-        -- Other configuration options as per your preferences (optional)
-        -- For example:
-        -- transparent = true,
-        -- sidebars = { "qf", "vista_kind", "terminal", "packer" },
-        -- on_colors = function(colors)
-        --   colors.error = "#ff0000" -- Change the "error" color to bright red
-        -- end,
       })
     end
   })
@@ -36,7 +28,6 @@ return require('packer').startup(function(use)
       require('lualine').setup {
         options = {
           theme = 'catppuccin'
-          -- Other Lualine options as per your preferences
         }
       }
     end
@@ -44,8 +35,6 @@ return require('packer').startup(function(use)
   use {
     'sudoerwx/vim-ray-so-beautiful',
     config = function()
-      -- Set any additional configurations here if needed
-      -- For example, configuring options
       vim.g.ray_options = {
         theme = 'candy',
         background = 'true',
@@ -83,4 +72,5 @@ return require('packer').startup(function(use)
   use({ "iamcco/markdown-preview.nvim" })
   use({ "catppuccin/nvim", as = "catppuccin" })
   use({ "ThePrimeagen/vim-be-good" })
+  use({ "mistricky/codesnap.nvim", run = "make" })
 end)
