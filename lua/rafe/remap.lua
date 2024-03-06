@@ -1,11 +1,18 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.api.nvim_set_keymap("n", "<C-P>", ":Format<CR>", { noremap = true, silent = true })
 
 -- a function to visually select everything
-function visualSelectAll()
+function VisualSelectAll()
   vim.cmd [[normal! ggVG]]
 end
 
+-- A function to visually select everything and copy it to the clipboard
+function VisualSelectAllAndCopy()
+  VisualSelectAll()
+  vim.cmd [[normal! "+y]]
+end
+
 -- Create a mapping for the function
-vim.api.nvim_set_keymap('n', '<leader>va', '<cmd>lua visualSelectAll()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>va', '<cmd>lua VisualSelectAll()<CR>', { noremap = true, silent = true })
+-- mapping for the function to copy to clipboard
+vim.api.nvim_set_keymap('n', '<leader>vc', '<cmd>lua VisualSelectAllAndCopy()<CR>', { noremap = true, silent = true })
