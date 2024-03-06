@@ -233,7 +233,7 @@ _G.packer_plugins = {
     url = "https://github.com/airblade/vim-gitgutter"
   },
   ["vim-ray-so-beautiful"] = {
-    config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\ntheme\ncandy\rdarkMode\ttrue\fpadding\a32\rlanguage\tauto\15background\ttrue\16ray_options\6g\bvim\0" },
+    config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\rlanguage\tauto\fpadding\a32\rdarkMode\ttrue\15background\ttrue\ntheme\ncandy\16ray_options\6g\bvim\0" },
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-ray-so-beautiful",
     url = "https://github.com/sudoerwx/vim-ray-so-beautiful"
@@ -266,7 +266,7 @@ try_loadstring("\27LJ\2\n`\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\00
 time([[Config for lualine.nvim]], false)
 -- Config for: vim-ray-so-beautiful
 time([[Config for vim-ray-so-beautiful]], true)
-try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\ntheme\ncandy\rdarkMode\ttrue\fpadding\a32\rlanguage\tauto\15background\ttrue\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")
+try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\rlanguage\tauto\fpadding\a32\rdarkMode\ttrue\15background\ttrue\ntheme\ncandy\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")
 time([[Config for vim-ray-so-beautiful]], false)
 
 _G._packer.inside_compile = false
