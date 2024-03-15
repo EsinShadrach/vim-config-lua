@@ -12,7 +12,15 @@ function VisualSelectAllAndCopy()
   vim.cmd [[normal! "+y]]
 end
 
+-- A function to visually Select a Line and copy to clipboard
+function SelectLine()
+  vim.cmd [[normal! V]]
+  vim.cmd [[normal! "+y]]
+end
+
 -- Create a mapping for the function
 vim.api.nvim_set_keymap('n', '<leader>va', '<cmd>lua VisualSelectAll()<CR>', { noremap = true, silent = true })
 -- mapping for the function to copy to clipboard
 vim.api.nvim_set_keymap('n', '<leader>vc', '<cmd>lua VisualSelectAllAndCopy()<CR>', { noremap = true, silent = true })
+-- mapping for the function to copy a line to clipboard
+vim.api.nvim_set_keymap('n', '<leader>vl', '<cmd>lua SelectLine()<CR>', { noremap = true, silent = true })
