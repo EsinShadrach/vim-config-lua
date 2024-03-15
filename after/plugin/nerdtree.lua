@@ -20,4 +20,3 @@ vim.g.NERDTreeGitStatusIndicatorMapCustom = {
   Ignored = "☒",
   Unknown = "?"
 }
-
