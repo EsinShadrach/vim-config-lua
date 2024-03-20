@@ -31,7 +31,7 @@ vim.g.mkdp_port = ''
 vim.g.mkdp_page_title = '「${name}」'
 vim.g.mkdp_images_path = '/Users/mac/md-images'
 vim.g.mkdp_filetypes = { 'markdown' }
-vim.g.mkdp_theme = 'dark'
+vim.g.mkdp_theme = 'light'
 vim.g.mkdp_combine_preview = 0
 vim.g.mkdp_combine_preview_auto_refresh = 1
 

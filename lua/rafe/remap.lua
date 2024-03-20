@@ -24,3 +24,7 @@ vim.api.nvim_set_keymap('n', '<leader>va', '<cmd>lua VisualSelectAll()<CR>', { n
 vim.api.nvim_set_keymap('n', '<leader>vc', '<cmd>lua VisualSelectAllAndCopy()<CR>', { noremap = true, silent = true })
 -- mapping for the function to copy a line to clipboard
 vim.api.nvim_set_keymap('n', '<leader>vl', '<cmd>lua SelectLine()<CR>', { noremap = true, silent = true })
+-- Map leader followed by ] to tab next
+vim.api.nvim_set_keymap('n', '<leader>]', ':tabnext<CR>', { noremap = true })
+-- Map leader followed by [ to tab previous
+vim.api.nvim_set_keymap('n', '<leader>[', ':tabprevious<CR>', { noremap = true })
