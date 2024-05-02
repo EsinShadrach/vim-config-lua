@@ -13,10 +13,6 @@
   "flutter.autoHideDevLog": true,
   "flutter.autoOpenDevLog": true,
   "languageserver": {
-    "kotlin": {
-      "command": "/Users/mac/dev/nvim-lsp/kotlin/server/bin/kotlin-language-server",
-      "filetypes": ["kotlin"]
-    },
     "dart": {
       "command": "dart",
       "args": [],

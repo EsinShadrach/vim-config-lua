@@ -13,3 +13,4 @@ lspconfig.rust_analyzer.setup {
     ['rust-analyzer'] = {},
   },
 }
+require 'lspconfig'.kotlin_language_server.setup {}

@@ -20,3 +20,4 @@ vim.g.NERDTreeGitStatusIndicatorMapCustom = {
   Ignored = "☒",
   Unknown = "?"
 }
+vim.g.NERDTreeWinPos = "right"
