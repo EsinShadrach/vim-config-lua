@@ -10,7 +10,7 @@
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
   "flutter.runDevToolsAtStartup": true,
-  "flutter.autoHideDevLog": true,
+  "flutter.autoHideDevLog": false,
   "flutter.autoOpenDevLog": true,
   "languageserver": {
     "dart": {
@@ -26,6 +26,10 @@
       "initializationOptions": {
         "usePlaceholders": true
       }
+    },
+    "kotlin": {
+      "command": "~/dev/kotlin-lsp/server/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
     }
   },
   "tailwindCSS.enable": true,

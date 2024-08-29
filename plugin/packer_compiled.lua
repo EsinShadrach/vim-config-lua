@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/mac/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?/init.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/mac/.cache/nvim/packer_hererocks/2.1.1700008891/lib/lua/5.1/?.so"
+local package_path_str = "/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?/init.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
     url = "https://github.com/dart-lang/dart-vim-plugin"
   },
+  ["go.nvim"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/go.nvim",
+    url = "https://github.com/ray-x/go.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -114,8 +119,13 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["kotlin-vim"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/kotlin-vim",
+    url = "https://github.com/udalov/kotlin-vim"
+  },
   ["lualine.nvim"] = {
-    config = { "\27LJ\2\n`\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\15catppuccin\nsetup\flualine\frequire\0" },
+    config = { "\27LJ\2\ni\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\1\foptions\0\1\0\1\ntheme\15catppuccin\nsetup\flualine\frequire\0" },
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/hoob3rt/lualine.nvim"
@@ -165,6 +175,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["rose-pine"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
   },
   ["rust-tools.nvim"] = {
     loaded = true,
@@ -233,7 +248,7 @@ _G.packer_plugins = {
     url = "https://github.com/airblade/vim-gitgutter"
   },
   ["vim-ray-so-beautiful"] = {
-    config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\rlanguage\tauto\fpadding\a32\rdarkMode\ttrue\15background\ttrue\ntheme\ncandy\16ray_options\6g\bvim\0" },
+    config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\fpadding\a32\rlanguage\tauto\ntheme\ncandy\rdarkMode\ttrue\15background\ttrue\16ray_options\6g\bvim\0" },
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-ray-so-beautiful",
     url = "https://github.com/sudoerwx/vim-ray-so-beautiful"
@@ -256,18 +271,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\ni\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\1\foptions\0\1\0\1\ntheme\15catppuccin\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: vim-ray-so-beautiful
+time([[Config for vim-ray-so-beautiful]], true)
+try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\fpadding\a32\rlanguage\tauto\ntheme\ncandy\rdarkMode\ttrue\15background\ttrue\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")
+time([[Config for vim-ray-so-beautiful]], false)
 -- Config for: tokyonight
 time([[Config for tokyonight]], true)
 try_loadstring("\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nstyle\nnight\nsetup\15tokyonight\frequire\0", "config", "tokyonight")
 time([[Config for tokyonight]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n`\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\15catppuccin\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: vim-ray-so-beautiful
-time([[Config for vim-ray-so-beautiful]], true)
-try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\rlanguage\tauto\fpadding\a32\rdarkMode\ttrue\15background\ttrue\ntheme\ncandy\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")
-time([[Config for vim-ray-so-beautiful]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
