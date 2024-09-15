@@ -5,7 +5,9 @@ print("Welcome")
 
 local function set_background_based_on_os()
   local handle = io.popen("~/dev/scripts/detect_appearance.sh")
+
   if handle == nil then
+    print("IS NULL")
     return
   end
 
