@@ -28,3 +28,6 @@ vim.api.nvim_set_keymap('n', '<leader>vl', '<cmd>lua SelectLine()<CR>', { norema
 vim.api.nvim_set_keymap('n', '<leader>]', ':tabnext<CR>', { noremap = true })
 -- Map leader followed by [ to tab previous
 vim.api.nvim_set_keymap('n', '<leader>[', ':tabprevious<CR>', { noremap = true })
+
+vim.cmd('command! W w')
+vim.cmd('command! Wa wa')

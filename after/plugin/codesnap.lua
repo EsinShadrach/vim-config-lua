@@ -5,4 +5,7 @@ require("codesnap").setup({
   preview_title = "Rafe.nvim",                    -- (Optional) preview page title
   editor_font_family = "CaskaydiaCove Nerd Font", -- (Optional) preview code font family
   watermark_font_family = "Pacifico",             -- (Optional) watermark font family
+  has_breadcrumbs = true,
+  breadcrumbs_separator = "/",
+  save_path = os.getenv("HOME") .. "/Pictures",
 })

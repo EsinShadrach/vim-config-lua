@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
   })
   use({
     'hoob3rt/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = { 'ryanoasis/vim-devicons', opt = true },
     config = function()
       require('lualine').setup {
         options = {
