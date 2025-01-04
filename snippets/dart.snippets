@@ -83,6 +83,8 @@ Scaffold(
   ),
 )
 
+endsnippet
+
 # Column Widget
 snippet column "Column Widget"
 Column(
@@ -92,6 +94,8 @@ Column(
     $0
   ],
 )
+
+endsnippet
 
 # Row Widget
 snippet row "Row Widget"
@@ -103,3 +107,23 @@ Row(
   ],
 )
 
+endsnippet
+
+# screen with Scaffold
+snippet screen "Screen with Scaffold"
+import 'package:flutter/material.dart';
+
+class ${1:ScreenName} extends StatelessWidget {
+	@override
+	Widget build(BuildContext context) {
+		return Scaffold(
+			appBar: AppBar(
+				title: Text('${2:Title}'),
+			),
+			body: ${3:Container}(
+				$0
+			),
+		);
+	}
+}
+endsnippet

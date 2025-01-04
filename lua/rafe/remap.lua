@@ -18,6 +18,25 @@ function SelectLine()
   vim.cmd [[normal! "+y]]
 end
 
+-- Function to copy the relative path to the clipboard
+function CopyRelativePathToClipboard()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+  print("Copied relative path to clipboard: " .. vim.fn.expand("%"))
+end
+
+-- Function to yank the relative path into the default yank register
+function YankRelativePath()
+  vim.fn.setreg('"', vim.fn.expand("%"))
+  print("Yanked relative path: " .. vim.fn.expand("%"))
+end
+
+-- Mapping to copy the relative path to the clipboard
+vim.api.nvim_set_keymap('n', '<leader>cp', '<cmd>lua CopyRelativePathToClipboard()<CR>',
+  { noremap = true, silent = true })
+
+-- Mapping to yank the relative path to the default register
+vim.api.nvim_set_keymap('n', '<leader>yp', '<cmd>lua YankRelativePath()<CR>', { noremap = true, silent = true })
+
 -- Create a mapping for the function
 vim.api.nvim_set_keymap('n', '<leader>va', '<cmd>lua VisualSelectAll()<CR>', { noremap = true, silent = true })
 -- mapping for the function to copy to clipboard
