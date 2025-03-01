@@ -58,7 +58,7 @@ return require('packer').startup(function(use)
   use({ 'airblade/vim-gitgutter' })
   use({ 'wakatime/vim-wakatime' })
   use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
-  use({ "iamcco/markdown-preview.nvim" })
+  use({ 'MeanderingProgrammer/render-markdown.nvim' })
   -- Themes
   use({ "catppuccin/nvim", as = "catppuccin" })
   use({ 'udalov/kotlin-vim' })
@@ -84,7 +84,6 @@ return require('packer').startup(function(use)
   -- AI Support
   use({ 'stevearc/dressing.nvim' })
   use({ 'MunifTanjim/nui.nvim' })
-  use({ 'MeanderingProgrammer/render-markdown.nvim' })
   use {
     "supermaven-inc/supermaven-nvim",
     config = function()
