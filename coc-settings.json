@@ -5,12 +5,10 @@
   "prettier.tabWidth": 2,
   "refactor.saveToFile": true,
   "coc.preferences.formatOnSave": true,
-  "flutter.provider.enableSnippet": true,
   "suggest.autoTrigger": "always",
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
   "flutter.runDevToolsAtStartup": true,
-  "flutter.autoHideDevLog": false,
   "flutter.autoOpenDevLog": true,
   "languageserver": {
     "dart": {
@@ -84,5 +82,6 @@
   "tailwindCSS.colorDecorators": true,
   "codeLens.enable": true,
   "rust-analyzer.checkOnSave": true,
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

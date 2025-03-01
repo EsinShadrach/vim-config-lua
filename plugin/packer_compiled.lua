@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?/init.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/mac/.cache/nvim/packer_hererocks/2.1.1710088188/lib/lua/5.1/?.so"
+local package_path_str = "/Users/mac/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?/init.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?.lua;/Users/mac/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/mac/.cache/nvim/packer_hererocks/2.1.1736781742/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -79,6 +79,12 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
+  ["avante.nvim"] = {
+    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vavante\frequire\0" },
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/avante.nvim",
+    url = "https://github.com/yetone/avante.nvim"
+  },
   catppuccin = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -89,35 +95,48 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
-  ["codesnap.nvim"] = {
+  ["copilot.lua"] = {
     loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/codesnap.nvim",
-    url = "https://github.com/mistricky/codesnap.nvim"
-  },
-  ["copilot.vim"] = {
-    loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/copilot.lua",
+    url = "https://github.com/zbirenbaum/copilot.lua"
   },
   ["dart-vim-plugin"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
     url = "https://github.com/dart-lang/dart-vim-plugin"
   },
-  ["go.nvim"] = {
+  ["dressing.nvim"] = {
     loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/go.nvim",
-    url = "https://github.com/ray-x/go.nvim"
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
   },
   harpoon = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
-  ["indent-blankline.nvim"] = {
+  ["heirline.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rheirline\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/opt/heirline.nvim",
+    url = "https://github.com/rebelot/heirline.nvim"
+  },
+  ["img-clip.nvim"] = {
     loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/img-clip.nvim",
+    url = "https://github.com/HakonHarnes/img-clip.nvim"
+  },
+  ["incline.nvim"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/incline.nvim",
+    url = "https://github.com/b0o/incline.nvim"
+  },
+  ["indentmini.nvim"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/indentmini.nvim",
+    url = "https://github.com/nvimdev/indentmini.nvim"
   },
   ["kotlin-vim"] = {
     loaded = true,
@@ -135,25 +154,45 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
-  nerdtree = {
+  ["material.nvim"] = {
     loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nerdtree",
-    url = "https://github.com/preservim/nerdtree"
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovac/material.nvim"
   },
-  ["nerdtree-git-plugin"] = {
+  ["nui.nvim"] = {
     loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nerdtree-git-plugin",
-    url = "https://github.com/Xuyuanp/nerdtree-git-plugin"
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -170,6 +209,11 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["render-markdown.nvim"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/render-markdown.nvim",
+    url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+  },
   ["rose-pine"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/rose-pine",
@@ -184,6 +228,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/rust.vim",
     url = "https://github.com/rust-lang/rust.vim"
+  },
+  ["supermaven-nvim"] = {
+    config = { "\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20supermaven-nvim\frequire\0" },
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/supermaven-nvim",
+    url = "https://github.com/supermaven-inc/supermaven-nvim"
   },
   ["tagalong.vim"] = {
     loaded = true,
@@ -206,11 +256,6 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  ["vim-be-good"] = {
-    loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-be-good",
-    url = "https://github.com/ThePrimeagen/vim-be-good"
-  },
   ["vim-better-comments"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-better-comments",
@@ -227,8 +272,9 @@ _G.packer_plugins = {
     url = "https://github.com/ap/vim-css-color"
   },
   ["vim-devicons"] = {
-    loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/opt/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
   },
   ["vim-fugitive"] = {
@@ -242,7 +288,7 @@ _G.packer_plugins = {
     url = "https://github.com/airblade/vim-gitgutter"
   },
   ["vim-ray-so-beautiful"] = {
-    config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\ntheme\ncandy\rdarkMode\ttrue\rlanguage\tauto\fpadding\a32\15background\ttrue\16ray_options\6g\bvim\0" },
+    config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\rlanguage\tauto\fpadding\a32\rdarkMode\ttrue\15background\ttrue\ntheme\ncandy\16ray_options\6g\bvim\0" },
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-ray-so-beautiful",
     url = "https://github.com/sudoerwx/vim-ray-so-beautiful"
@@ -275,8 +321,23 @@ try_loadstring("\27LJ\2\ni\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\00
 time([[Config for lualine.nvim]], false)
 -- Config for: vim-ray-so-beautiful
 time([[Config for vim-ray-so-beautiful]], true)
-try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\ntheme\ncandy\rdarkMode\ttrue\rlanguage\tauto\fpadding\a32\15background\ttrue\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")
+try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\rlanguage\tauto\fpadding\a32\rdarkMode\ttrue\15background\ttrue\ntheme\ncandy\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")
 time([[Config for vim-ray-so-beautiful]], false)
+-- Config for: supermaven-nvim
+time([[Config for supermaven-nvim]], true)
+try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20supermaven-nvim\frequire\0", "config", "supermaven-nvim")
+time([[Config for supermaven-nvim]], false)
+-- Config for: avante.nvim
+time([[Config for avante.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vavante\frequire\0", "config", "avante.nvim")
+time([[Config for avante.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au UiEnter * ++once lua require("packer.load")({'heirline.nvim'}, { event = "UiEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
