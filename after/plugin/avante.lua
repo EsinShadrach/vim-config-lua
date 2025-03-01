@@ -26,4 +26,26 @@ require("avante").setup({
     enable_token_counting = true,
     enable_cursor_planning_mode = false,
   },
+  window = {
+    input = {
+      height = 6, -- Height of the input window in vertical layout
+    },
+  }
 })
+
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Normal mode mappings
+map("n", "<leader>ha", ":AvanteAsk<CR>", opts)
+map("n", "<leader>hb", ":AvanteBuild<CR>", opts)
+map("n", "<leader>hc", ":AvanteChat<CR>", opts)
+map("n", "<leader>hf", ":AvanteFocus<CR>", opts)
+map("n", "<leader>hr", ":AvanteRefresh<CR>", opts)
+map("n", "<leader>hs", ":AvanteSwitchProvider<CR>", opts)
+map("n", "<leader>hm", ":AvanteShowRepoMap<CR>", opts)
+map("n", "<leader>ht", ":AvanteToggle<CR>", opts)
+
+-- Visual mode mappings (selected text will be passed as input)
+map("v", "<leader>ha", ':<C-u>AvanteAsk position=right "<C-r><C-w>"<CR>', opts)
+map("v", "<leader>he", ':<C-u>AvanteEdit<CR>', opts)
