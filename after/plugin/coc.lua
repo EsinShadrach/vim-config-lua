@@ -103,7 +103,7 @@ keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 
 -- Remap keys for apply code actions at the cursor position.
-keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", { noremap = true, silent = true })
+keyset("n", "<leader>wc", "<Plug>(coc-codeaction-cursor)", { noremap = true, silent = true })
 keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", { noremap = true, silent = true })
 -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
 -- -- Remap keys for apply source code actions for current file.

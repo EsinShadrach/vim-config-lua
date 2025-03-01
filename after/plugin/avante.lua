@@ -30,22 +30,18 @@ require("avante").setup({
     input = {
       height = 6, -- Height of the input window in vertical layout
     },
-  }
+  },
+  files = {
+    add_current = "<leader>hc", -- Add current buffer to selected files
+  },
+  ask = "<leader>ha",
+  edit = "<leader>he",
+  refresh = "<leader>hr",
+  focus = "<leader>hf",
+  toggle = {
+    default = "<leader>ht",
+    debug = "<leader>hd",
+    suggestion = "<leader>hs",
+    repomap = "<leader>hR",
+  },
 })
-
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
--- Normal mode mappings
-map("n", "<leader>ha", ":AvanteAsk<CR>", opts)
-map("n", "<leader>hb", ":AvanteBuild<CR>", opts)
-map("n", "<leader>hc", ":AvanteChat<CR>", opts)
-map("n", "<leader>hf", ":AvanteFocus<CR>", opts)
-map("n", "<leader>hr", ":AvanteRefresh<CR>", opts)
-map("n", "<leader>hs", ":AvanteSwitchProvider<CR>", opts)
-map("n", "<leader>hm", ":AvanteShowRepoMap<CR>", opts)
-map("n", "<leader>ht", ":AvanteToggle<CR>", opts)
-
--- Visual mode mappings (selected text will be passed as input)
-map("v", "<leader>ha", ':<C-u>AvanteAsk position=right "<C-r><C-w>"<CR>', opts)
-map("v", "<leader>he", ':<C-u>AvanteEdit<CR>', opts)
