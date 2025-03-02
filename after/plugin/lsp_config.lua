@@ -1,8 +1,8 @@
 local lspconfig = require('lspconfig')
 
-require("lspconfig").lua_ls.setup {
-  -- on_attach = on_attach,
-}
+-- require("lspconfig").lua_ls.setup {
+--   -- on_attach = on_attach,
+-- }
 
 -- Setup language servers.
 lspconfig.pyright.setup {}

@@ -58,6 +58,20 @@ return require('packer').startup(function(use)
   use({ 'airblade/vim-gitgutter' })
   use({ 'wakatime/vim-wakatime' })
   use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
+  use({ 'rhysd/conflict-marker.vim' })
+  use({
+    's1n7ax/nvim-terminal',
+    config = function()
+      vim.o.hidden = true
+      require('nvim-terminal').setup()
+    end,
+  })
+  use({
+    "nvim-zh/colorful-winsep.nvim",
+    config = function()
+      require('colorful-winsep').setup()
+    end
+  })
   use({ 'MeanderingProgrammer/render-markdown.nvim' })
   -- Themes
   use({ "catppuccin/nvim", as = "catppuccin" })
