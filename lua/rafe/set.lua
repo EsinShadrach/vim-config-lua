@@ -11,3 +11,8 @@ vim.opt.encoding = "utf-8"
 vim.opt.guifont = "FireCode Nerd Font:h12"
 
 vim.opt.mouse = "a"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.cursorline = true
+
+vim.opt.termguicolors = true
