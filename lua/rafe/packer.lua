@@ -36,6 +36,7 @@ return require('packer').startup(function(use)
       }
     end
   })
+  use({ "lukas-reineke/indent-blankline.nvim" })
   use({ "akinsho/bufferline.nvim" })
   use({ 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } })
   use({ 'nvim-treesitter/playground' })

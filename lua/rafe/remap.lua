@@ -50,3 +50,13 @@ vim.api.nvim_set_keymap('n', '<leader>[', ':tabprevious<CR>', { noremap = true }
 
 vim.cmd('command! W w')
 vim.cmd('command! Wa wa')
+
+vim.api.nvim_create_user_command("ToggleBackground", function()
+  if vim.o.background == "dark" then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
+end, {})
+
+vim.keymap.set("n", "<leader>tb", "<cmd>ToggleBackground<CR>", { desc = "Toggle light/dark background" })
