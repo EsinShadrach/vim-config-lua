@@ -3,6 +3,7 @@
 require("avante").setup({
   provider = "claude",
   auto_suggestions_provider = "claude",
+  disable_tools = true,
   claude = {
     endpoint = "https://api.anthropic.com",
     model = "claude-3-5-sonnet-20241022",
