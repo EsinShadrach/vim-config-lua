@@ -61,14 +61,55 @@ end, {})
 
 vim.keymap.set("n", "<leader>tb", "<cmd>ToggleBackground<CR>", { desc = "Toggle light/dark background" })
 
-vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
+-- vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
+--   callback = function()
+--     local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+--     if not normal.bg then return end
+--     io.write(string.format("\027]11;#%06x\027\\", normal.bg))
+--   end,
+-- })
+
+-- vim.api.nvim_create_autocmd("UILeave", {
+--   callback = function() io.write("\027]111\027\\") end,
+-- })
+
+-- Auto-sync terminal background with Neovim's theme (dark mode only)
+-- Works on macOS and terminals that support OSC 11 (Kitty, iTerm2, WezTerm, etc.)
+
+-- Helper to detect macOS dark mode
+local function is_dark_mode()
+  local handle = io.popen('defaults read -g AppleInterfaceStyle 2>/dev/null')
+
+  if handle == nil then
+    return
+  end
+
+  local result = handle:read('*a')
+  handle:close()
+  return result:match('Dark') ~= nil
+end
+
+-- Set terminal background color (OSC 11)
+local function set_terminal_bg(color)
+  io.write(string.format('\027]11;#%06x\027\\', color))
+end
+
+-- Reset terminal background to default (OSC 111)
+local function reset_terminal_bg()
+  io.write('\027]111\027\\')
+end
+
+-- Apply only when in dark mode and Neovim has a bg color
+vim.api.nvim_create_autocmd({ 'UIEnter', 'ColorScheme' }, {
   callback = function()
-    local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+    if not is_dark_mode() then return end
+    local normal = vim.api.nvim_get_hl(0, { name = 'Normal' })
     if not normal.bg then return end
-    io.write(string.format("\027]11;#%06x\027\\", normal.bg))
+    set_terminal_bg(normal.bg)
   end,
 })
 
-vim.api.nvim_create_autocmd("UILeave", {
-  callback = function() io.write("\027]111\027\\") end,
+-- Restore terminal background when leaving Neovim
+vim.api.nvim_create_autocmd('UILeave', {
+  callback = reset_terminal_bg,
 })

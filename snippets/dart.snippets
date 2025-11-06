@@ -4,6 +4,13 @@ ${1:void} ${2:functionName}(${3:Type} ${4:parameter}) {
 }
 endsnippet
 
+
+snippet future "Create a Future function" 
+Future<${1:void}> ${2:functionName}(${3:Type} ${4:parameter}) async {
+    $0
+}
+endsnippet
+
 # Stateless Widget
 snippet stl "Stateless Widget"
 class ${1:WidgetName} extends StatelessWidget {
