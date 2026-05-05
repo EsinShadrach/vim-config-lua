@@ -99,12 +99,12 @@ vim.api.nvim_create_autocmd("User", {
 -- Apply codeAction to the selected region
 -- Example: `<leader>aap` for current paragraph
 local opts = { silent = true, nowait = true }
-keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
-keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+keyset("x", "<leader>s", "<Plug>(coc-codeaction-selected)", opts)
+keyset("n", "<leader>s", "<Plug>(coc-codeaction-selected)", opts)
 
 -- Remap keys for apply code actions at the cursor position.
 keyset("n", "<leader>wc", "<Plug>(coc-codeaction-cursor)", { noremap = true, silent = true })
-keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", { noremap = true, silent = true })
+-- keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", { noremap = true, silent = true })
 -- keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
 -- -- Remap keys for apply source code actions for current file.
 -- keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
@@ -170,7 +170,7 @@ vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}"
 ---@diagnostic disable-next-line: redefined-local
 local opts = { silent = true, nowait = true }
 -- Show all diagnostics
-keyset("n", "<space>a", ":<C-u>CocList diagnostics<cr>", opts)
+-- keyset("n", "<space>a", ":<C-u>CocList diagnostics<cr>", opts)
 -- Manage extensions
 keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
 -- Show commands

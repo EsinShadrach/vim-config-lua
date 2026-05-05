@@ -1,4 +1,4 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('plugins')` from your init.vimpack
 
 -- Only required if you have packer configured as `opt`
 
@@ -58,7 +58,6 @@ return require('packer').startup(function(use)
   use({ 'neovim/nvim-lspconfig' })
   use({ 'nvim-lua/plenary.nvim' })
   use({ 'airblade/vim-gitgutter' })
-  use({ 'wakatime/vim-wakatime' })
   use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
   use({ 'rhysd/conflict-marker.vim' })
   use({
@@ -112,6 +111,7 @@ return require('packer').startup(function(use)
   use({ 'nvim-tree/nvim-web-devicons' }) -- or use 'echasnovski/mini.icons'
   use({ 'HakonHarnes/img-clip.nvim' })
   use({ 'zbirenbaum/copilot.lua' })
+  use({ 'folke/snacks.nvim' })
 
   -- Avante.nvim with build process
   use {

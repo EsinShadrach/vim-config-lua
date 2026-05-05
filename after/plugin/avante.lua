@@ -1,7 +1,7 @@
 -- config for avante.nvim
 
 require("avante").setup({
-  provider = "openai",
+  provider = "gemini-cli",
   auto_suggestions_provider = "claude",
   providers = {
     claude = {

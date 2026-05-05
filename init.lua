@@ -24,11 +24,11 @@ local function set_background_based_on_os()
 end
 
 -- Ensure this runs after all configurations, especially indent-blankline
-vim.api.nvim_create_autocmd("VimEnter", {
-  pattern = "*",
-  callback = function()
-    vim.defer_fn(function()
-      set_background_based_on_os()
-    end, 0) -- Delay execution by 1ms to ensure all configs are loaded
-  end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   pattern = "*",
+--   callback = function()
+--     vim.defer_fn(function()
+--       set_background_based_on_os()
+--     end, 0) -- Delay execution by 1ms to ensure all configs are loaded
+--   end,
+-- })

@@ -15,7 +15,13 @@
   "languageserver": {
     "dart": {
       "command": "dart",
-      "args": [],
+      "args": [
+        "language-server",
+        "--client-id",
+        "nvim.coc",
+        "--client-version",
+        "1.2"
+      ],
       "filetypes": ["dart"],
       "trace.server": "verbose"
     },
