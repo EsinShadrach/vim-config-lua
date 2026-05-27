@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'catppuccin'
+          theme = 'auto'
         }
       }
     end
@@ -44,7 +44,7 @@ return require('packer').startup(function(use)
   use({ 'mbbill/undotree' })
   use({ 'tpope/vim-fugitive' })
   use({ 'neoclide/coc.nvim', branch = "release" })
-  use({ 'jiangmiao/auto-pairs' })
+  use({ 'windwp/nvim-autopairs' })
   use({ "ap/vim-css-color" })
   use({ "tpope/vim-surround" })
   use({ 'dart-lang/dart-vim-plugin' })
@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
   use({ 'andrewradev/tagalong.vim' })
   use({ 'rust-lang/rust.vim' })
   use({ 'jbgutierrez/vim-better-comments' })
-  use({ "nvimdev/indentmini.nvim" })
+  -- use({ "nvimdev/indentmini.nvim" })
   use({ "marko-cerovac/material.nvim" })
   use({ 'neovim/nvim-lspconfig' })
   use({ 'nvim-lua/plenary.nvim' })
@@ -87,13 +87,6 @@ return require('packer').startup(function(use)
         style = "night",
       })
     end
-  })
-
-  use({
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional
-    },
   })
 
   -- AI Support
