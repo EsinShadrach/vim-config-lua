@@ -17,3 +17,11 @@ vim.opt.cursorline = true
 
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
+
+vim.filetype.add({
+  extension = {
+    arb = 'jsonc',
+  },
+})
+
+vim.api.nvim_create_user_command("W", "noautocmd write", {})
