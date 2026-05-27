@@ -172,12 +172,6 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-terminal"] = {
-    config = { "\27LJ\2\nX\0\0\3\0\6\0\n6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\nsetup\18nvim-terminal\frequire\vhidden\6o\bvim\0" },
-    loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-terminal",
-    url = "https://github.com/s1n7ax/nvim-terminal"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -275,11 +269,6 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
-    url = "https://github.com/airblade/vim-gitgutter"
-  },
   ["vim-ray-so-beautiful"] = {
     config = { "\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\rlanguage\tauto\rdarkMode\ttrue\15background\ttrue\ntheme\ncandy\fpadding\a32\16ray_options\6g\bvim\0" },
     loaded = true,
@@ -315,10 +304,6 @@ time([[Config for tokyonight]], false)
 time([[Config for avante.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vavante\frequire\0", "config", "avante.nvim")
 time([[Config for avante.nvim]], false)
--- Config for: nvim-terminal
-time([[Config for nvim-terminal]], true)
-try_loadstring("\27LJ\2\nX\0\0\3\0\6\0\n6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\nsetup\18nvim-terminal\frequire\vhidden\6o\bvim\0", "config", "nvim-terminal")
-time([[Config for nvim-terminal]], false)
 -- Config for: vim-ray-so-beautiful
 time([[Config for vim-ray-so-beautiful]], true)
 try_loadstring("\27LJ\2\ns\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\5\rlanguage\tauto\rdarkMode\ttrue\15background\ttrue\ntheme\ncandy\fpadding\a32\16ray_options\6g\bvim\0", "config", "vim-ray-so-beautiful")

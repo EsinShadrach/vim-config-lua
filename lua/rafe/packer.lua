@@ -57,16 +57,16 @@ return require('packer').startup(function(use)
   use({ "marko-cerovac/material.nvim" })
   use({ 'neovim/nvim-lspconfig' })
   use({ 'nvim-lua/plenary.nvim' })
-  use({ 'airblade/vim-gitgutter' })
+  -- use({ 'airblade/vim-gitgutter' }) -- replaced by snacks git
   -- use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
   use({ 'rhysd/conflict-marker.vim' })
-  use({
-    's1n7ax/nvim-terminal',
-    config = function()
-      vim.o.hidden = true
-      require('nvim-terminal').setup()
-    end,
-  })
+  -- use({
+  --   's1n7ax/nvim-terminal',
+  --   config = function()
+  --     vim.o.hidden = true
+  --     require('nvim-terminal').setup()
+  --   end,
+  -- }) -- replaced by snacks terminal
   use({
     "nvim-zh/colorful-winsep.nvim",
     config = function()

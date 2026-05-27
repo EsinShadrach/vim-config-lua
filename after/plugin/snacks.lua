@@ -8,6 +8,9 @@ require('snacks').setup({
       enabled = true,
     },
   },
+  git = { enabled = true },
+  lazygit = { enabled = true },
+  terminal = { enabled = true },
   input = { enabled = true },
   notifier = { enabled = true },
   quickfile = { enabled = true },
@@ -59,6 +62,14 @@ end, { desc = 'Smart Find Files' })
 vim.keymap.set('n', '<leader>n', function()
   Snacks.explorer.reveal()
 end, { desc = 'Snacks Explorer' })
+
+vim.keymap.set('n', '<leader>gg', function()
+  Snacks.lazygit()
+end, { desc = 'Lazygit' })
+
+vim.keymap.set('n', '<leader>tt', function()
+  Snacks.terminal()
+end, { desc = 'Toggle Terminal' })
 
 vim.keymap.set('n', '<leader>fb', function()
   Snacks.picker.buffers()
