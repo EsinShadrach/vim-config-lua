@@ -1,16 +1,4 @@
-local lspconfig = require('lspconfig')
-
--- require("lspconfig").lua_ls.setup {
---   -- on_attach = on_attach,
--- }
-
--- Setup language servers.
-lspconfig.pyright.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['rust-analyzer'] = {},
-  },
-}
-require 'lspconfig'.kotlin_language_server.setup {}
+vim.lsp.enable('pyright')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('kotlin_language_server')
+-- rust-analyzer is configured natively in rustconfig.lua

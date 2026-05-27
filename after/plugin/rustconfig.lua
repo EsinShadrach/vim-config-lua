@@ -1,43 +1,37 @@
-local rt = require("rust-tools")
+local border = {
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
+}
 
--- nvim_lsp.rust_analyzer.setup({})
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.handlers.hover
+vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'FloatBorder' })
+vim.opt.winborder = 'rounded'
 
-rt.setup({
-  tools = {
-    hover_actions = {
-      border = {
-        { "╭", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╮", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "╯", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╰", "FloatBorder" },
-        { "│", "FloatBorder" },
+vim.lsp.config['rust-analyzer'] = {
+  settings = {
+    ['rust-analyzer'] = {
+      inlayHints = {
+        parameterHints = { enable = true, prefix = "<- " },
+        typeHints = { enable = true, prefix = "=> " },
+        chainingHints = { enable = true },
       },
-      auto_focus = true,
-    },
-    autoSetHints = true,
-    on_attach = true,
-    runnables = {
-      use_telescope = true,
-    },
-    debuggables = {
-      use_telescope = true,
-    },
-    inlay_hints = {
-      show_parameter_hints = true,
-      parameter_hints_prefix = "<-",
-      other_hints_prefix = "=>",
     },
   },
-  server = {
-    -- completion = require("cmp_nvim_lsp").default_capabilities(),
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
+}
+vim.lsp.enable('rust-analyzer')
+
+vim.lsp.inlay_hint.enable(true)
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'rust',
+  callback = function()
+    vim.keymap.set("n", "<C-space>", vim.lsp.buf.hover, { buffer = true })
+    vim.keymap.set("n", "<Leader>a", vim.lsp.buf.code_action, { buffer = true })
+  end,
 })

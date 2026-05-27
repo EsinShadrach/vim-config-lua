@@ -4,7 +4,4 @@ require("dressing").setup({
   input = {
     default = "nui",
   },
-  select = {
-    enabled = false,
-  },
 })

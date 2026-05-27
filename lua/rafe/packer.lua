@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
   use({ "lukas-reineke/indent-blankline.nvim" })
   use({ "akinsho/bufferline.nvim" })
   use({ 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } })
-  use({ 'nvim-treesitter/playground' })
+  -- use({ 'nvim-treesitter/playground' }) -- incompatible with current nvim-treesitter
   use({ 'theprimeagen/harpoon' })
   use({ 'mbbill/undotree' })
   use({ 'tpope/vim-fugitive' })
@@ -58,7 +58,7 @@ return require('packer').startup(function(use)
   use({ 'neovim/nvim-lspconfig' })
   use({ 'nvim-lua/plenary.nvim' })
   use({ 'airblade/vim-gitgutter' })
-  use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
+  -- use { 'simrat39/rust-tools.nvim', requires = { 'neovim/nvim-lspconfig' } }
   use({ 'rhysd/conflict-marker.vim' })
   use({
     's1n7ax/nvim-terminal',
@@ -99,12 +99,7 @@ return require('packer').startup(function(use)
   -- AI Support
   use({ 'stevearc/dressing.nvim' })
   use({ 'MunifTanjim/nui.nvim' })
-  use {
-    "supermaven-inc/supermaven-nvim",
-    config = function()
-      require("supermaven-nvim").setup({})
-    end,
-  }
+  use { "supermaven-inc/supermaven-nvim" }
 
   -- Optional dependencies
   use({ 'hrsh7th/nvim-cmp' })

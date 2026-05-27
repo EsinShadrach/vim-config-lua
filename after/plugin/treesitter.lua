@@ -1,4 +1,4 @@
-require 'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.config'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "dart", "javascript", "rust", "python", "typescript", "c", "lua", "vim", "vimdoc", "query", "dart", "xml", "swift" },
 
