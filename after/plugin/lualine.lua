@@ -17,7 +17,39 @@ require('lualine').setup {
         fmt = function(str) return ' ' .. str end, -- Adds Vim icon
       }
     },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
+    lualine_b = {
+      'branch', 'diff',
+      {
+        function()
+          local ok, diag_list = pcall(vim.fn.CocAction, 'diagnosticList')
+          if not ok or type(diag_list) ~= 'table' or #diag_list == 0 then return "" end
+          local groups = {}
+          for _, d in ipairs(diag_list) do
+            groups[d.severity] = groups[d.severity] or { count = 0, first = nil }
+            groups[d.severity].count = groups[d.severity].count + 1
+            if not groups[d.severity].first then
+              groups[d.severity].first = d.lnum
+            end
+          end
+          local parts = {}
+          local icons = { Error = " ", Warning = " ", Information = " ", Hint = " " }
+          local hl = {
+            Error = "DiagnosticError",
+            Warning = "DiagnosticWarn",
+            Information = "DiagnosticInfo",
+            Hint =
+            "DiagnosticHint"
+          }
+          for _, sev in ipairs({ 'Error', 'Warning', 'Information', 'Hint' }) do
+            if groups[sev] then
+              table.insert(parts,
+                string.format("%%#%s#%s%d:L%d%%*", hl[sev], icons[sev], groups[sev].count, groups[sev].first))
+            end
+          end
+          return table.concat(parts, " ")
+        end,
+      },
+    },
     lualine_c = {
       {
         'filename',
