@@ -1,5 +1,13 @@
 require('snacks').setup({
   bigfile = { enabled = true },
+  indent = {
+    enabled = true,
+    char = "▏",
+    only_scope = false,
+    scope = {
+      enabled = true,
+    },
+  },
   input = { enabled = true },
   notifier = { enabled = true },
   quickfile = { enabled = true },
