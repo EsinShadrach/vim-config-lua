@@ -40,11 +40,74 @@ keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
 keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
 
--- GoTo code navigation
-keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
-keyset("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
-keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
-keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
+-- GoTo code navigation (using Snacks Picker)
+local function coc_jump_snacks(action_name, title, extra_args)
+  local cb = function(err, res)
+    if err ~= vim.NIL and err ~= nil then
+      vim.notify("Error getting " .. title, vim.log.levels.ERROR)
+      return
+    end
+    if type(res) ~= 'table' or vim.tbl_isempty(res) then
+      vim.notify("No " .. title .. " found", vim.log.levels.WARN)
+      return
+    end
+
+    if #res == 1 then
+      local l = res[1]
+      local uri = l.targetUri or l.uri
+      local range = l.targetRange or l.range
+      local filename = vim.uri_to_fname(uri)
+      vim.cmd("edit " .. vim.fn.fnameescape(filename))
+      vim.api.nvim_win_set_cursor(0, { range.start.line + 1, range.start.character })
+      vim.cmd("normal! zz")
+      return
+    end
+
+    local items = {}
+    for _, l in ipairs(res) do
+      local uri = l.targetUri or l.uri
+      local range = l.targetRange or l.range
+      local filename = vim.uri_to_fname(uri)
+      
+      local bufnr = vim.uri_to_bufnr(uri)
+      local is_loaded = vim.api.nvim_buf_is_loaded(bufnr)
+      local line_text = ''
+      if is_loaded then
+        local lines = vim.api.nvim_buf_get_lines(bufnr, range.start.line, range.start.line + 1, false)
+        line_text = lines[1] or ''
+      else
+        if vim.fn.filereadable(filename) == 1 then
+          local content = vim.fn.readfile(filename, '', range.start.line + 1)
+          line_text = content[range.start.line + 1] or ''
+        end
+      end
+
+      table.insert(items, {
+        file = filename,
+        pos = { range.start.line + 1, range.start.character + 1 },
+        text = vim.fn.fnamemodify(filename, ":t") .. " " .. vim.trim(line_text),
+        line = vim.trim(line_text),
+      })
+    end
+
+    require("snacks").picker.pick({
+      title = title,
+      items = items,
+      format = "file",
+    })
+  end
+
+  if extra_args ~= nil then
+    vim.fn.CocActionAsync(action_name, extra_args, cb)
+  else
+    vim.fn.CocActionAsync(action_name, cb)
+  end
+end
+
+keyset("n", "gd", function() coc_jump_snacks('definitions', 'CoC Definitions') end, { silent = true, desc = "Goto Definition" })
+keyset("n", "gy", function() coc_jump_snacks('typeDefinitions', 'CoC Type Definitions') end, { silent = true, desc = "Goto Type Definition" })
+keyset("n", "gi", function() coc_jump_snacks('implementations', 'CoC Implementations') end, { silent = true, desc = "Goto Implementation" })
+keyset("n", "gr", function() coc_jump_snacks('references', 'CoC References', false) end, { silent = true, desc = "Goto References" })
 
 
 -- Use K to show documentation in preview window
@@ -170,15 +233,168 @@ vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}"
 ---@diagnostic disable-next-line: redefined-local
 local opts = { silent = true, nowait = true }
 -- Show all diagnostics
--- keyset("n", "<space>a", ":<C-u>CocList diagnostics<cr>", opts)
+keyset("n", "<leader>d", function()
+  vim.fn.CocActionAsync('diagnosticList', function(err, res)
+    if err ~= vim.NIL and err ~= nil then
+      vim.notify("Error getting CoC diagnostics", vim.log.levels.ERROR)
+      return
+    end
+    if type(res) ~= 'table' or vim.tbl_isempty(res) then
+      vim.notify("No CoC diagnostics", vim.log.levels.WARN)
+      return
+    end
+
+    local items = {}
+    for _, d in ipairs(res) do
+      local text = vim.trim(d.message:gsub('[\n]', ''))
+      local severity = d.severity or "Unknown"
+      table.insert(items, {
+        file = d.file,
+        pos = { d.lnum, d.col },
+        text = vim.fn.fnamemodify(d.file, ":t") .. " " .. text,
+        msg = text,
+        severity = severity,
+        source = d.source,
+      })
+    end
+
+    require("snacks").picker.pick({
+      title = "CoC Diagnostics",
+      items = items,
+      format = function(item, picker)
+        local sev = item.severity
+        if sev == "Information" then sev = "Info" end
+        if sev == "Warning" then sev = "Warn" end
+        local hl = "Diagnostic" .. sev
+        return {
+          { sev:sub(1,1), hl },
+          { " " },
+          { item.msg, "Normal" },
+          { " " .. (item.source or ""), "Comment" },
+        }
+      end,
+    })
+  end)
+end, { silent = true, nowait = true, desc = "CoC Diagnostics" })
+keyset("n", "<space>a", "<leader>d", { remap = true, silent = true, desc = "CoC Diagnostics" })
 -- Manage extensions
 keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
 -- Show commands
-keyset("n", "<space>c", ":<C-u>CocList commands<cr>", opts)
+keyset("n", "<space>c", function()
+  vim.fn.CocActionAsync('commands', function(err, res)
+    if err ~= vim.NIL and err ~= nil then
+      vim.notify("Error getting CoC commands", vim.log.levels.ERROR)
+      return
+    end
+    if type(res) ~= 'table' or vim.tbl_isempty(res) then
+      vim.notify("No CoC commands available", vim.log.levels.WARN)
+      return
+    end
+
+    local items = {}
+    for _, cmd in ipairs(res) do
+      table.insert(items, {
+        text = cmd.id .. " " .. (cmd.title or ""),
+        cmd_id = cmd.id,
+        title = cmd.title or "",
+      })
+    end
+
+    require("snacks").picker.pick({
+      title = "CoC Commands",
+      items = items,
+      format = function(item, picker)
+        return {
+          { item.cmd_id, "Function" },
+          { " " },
+          { item.title, "Comment" }
+        }
+      end,
+      confirm = function(picker, item)
+        picker:close()
+        if item and item.cmd_id then
+          vim.fn.CocActionAsync('runCommand', item.cmd_id)
+        end
+      end,
+    })
+  end)
+end, { silent = true, nowait = true, desc = "CoC Commands" })
 -- Find symbol of current document
-keyset("n", "<space>o", ":<C-u>CocList outline<cr>", opts)
+keyset("n", "<space>o", function()
+  vim.fn.CocActionAsync('documentSymbols', vim.api.nvim_get_current_buf(), function(err, res)
+    if err ~= vim.NIL and err ~= nil then
+      vim.notify("Error getting CoC symbols", vim.log.levels.ERROR)
+      return
+    end
+    if type(res) ~= 'table' or vim.tbl_isempty(res) then
+      vim.notify("No CoC symbols found", vim.log.levels.WARN)
+      return
+    end
+
+    local items = {}
+    local filename = vim.api.nvim_buf_get_name(0)
+    for _, s in ipairs(res) do
+      table.insert(items, {
+        file = filename,
+        pos = { s.lnum, s.col },
+        text = s.text,
+        kind = s.kind,
+        level = s.level or 0,
+      })
+    end
+
+    require("snacks").picker.pick({
+      title = "CoC Document Symbols",
+      items = items,
+      format = function(item, picker)
+        local indent = string.rep("  ", item.level or 0)
+        return {
+          { indent .. "[" .. (item.kind or "Unknown") .. "] ", "Type" },
+          { item.text, "Normal" },
+        }
+      end,
+    })
+  end)
+end, { silent = true, nowait = true, desc = "CoC Outline" })
 -- Search workspace symbols
-keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", opts)
+keyset("n", "<space>s", function()
+  vim.ui.input({ prompt = 'Workspace Symbol: ' }, function(query)
+    if not query or query == '' then return end
+    vim.fn.CocActionAsync('getWorkspaceSymbols', query, function(err, res)
+      if err ~= vim.NIL and err ~= nil then
+        vim.notify("Error getting CoC workspace symbols", vim.log.levels.ERROR)
+        return
+      end
+      if type(res) ~= 'table' or vim.tbl_isempty(res) then
+        vim.notify("No CoC workspace symbols found", vim.log.levels.WARN)
+        return
+      end
+
+      local items = {}
+      for _, s in ipairs(res) do
+        local filename = vim.uri_to_fname(s.location.uri)
+        table.insert(items, {
+          file = filename,
+          pos = { s.location.range.start.line + 1, s.location.range.start.character + 1 },
+          text = vim.fn.fnamemodify(filename, ":t") .. " " .. s.name,
+          name = s.name,
+          kind = vim.lsp.protocol.SymbolKind[s.kind] or s.kind or 'Unknown',
+        })
+      end
+
+      require("snacks").picker.pick({
+        title = "CoC Workspace Symbols",
+        items = items,
+        format = function(item, picker)
+          return {
+            { "[" .. (item.kind or "Unknown") .. "] ", "Type" },
+            { item.name, "Normal" },
+          }
+        end,
+      })
+    end)
+  end)
+end, { silent = true, nowait = true, desc = "CoC Workspace Symbols" })
 -- Do default action for next item
 keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
 -- Do default action for previous item

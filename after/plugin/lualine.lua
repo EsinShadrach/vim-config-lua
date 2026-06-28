@@ -30,12 +30,15 @@ require('lualine').setup {
             local ok, list = pcall(vim.fn.CocAction, 'diagnosticList')
             if ok and type(list) == 'table' then
               local groups = {}
+              local current_file = vim.api.nvim_buf_get_name(0)
               for _, d in ipairs(list) do
-                local sev = d.severity:lower()
-                groups[sev] = groups[sev] or { count = 0, first = nil }
-                groups[sev].count = groups[sev].count + 1
-                if not groups[sev].first then
-                  groups[sev].first = d.lnum
+                if d.file == current_file then
+                  local sev = d.severity:lower()
+                  groups[sev] = groups[sev] or { count = 0, first = nil }
+                  groups[sev].count = groups[sev].count + 1
+                  if not groups[sev].first then
+                    groups[sev].first = d.lnum
+                  end
                 end
               end
               vim.g._coc_diag_cache = groups
